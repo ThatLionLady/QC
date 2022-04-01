@@ -4,6 +4,7 @@ Here are scripts that for getting quality control statistics for various things.
 
 ## Scripts:
 - FastQC to MultiQC
+- Calculate BAM Coverage
 
 ### FastQC to MultiQC
 
@@ -15,4 +16,14 @@ Here are scripts that for getting quality control statistics for various things.
     - path to out directory for FastQC results 
 4. threads
 
+### Calculate BAM Coverage
 
+Input files must be in the format "sample.descriptor.bam".
+
+1. samples
+    - path to list of samples
+2. descriptor
+3. directory
+    - path to BAMs directory
+4. out directory 
+    - path to out directory
