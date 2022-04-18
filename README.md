@@ -1,6 +1,6 @@
 # Quality Control
 
-Here are scripts that for getting quality control statistics for various things.
+Here are scripts for getting quality control statistics for various things.
 
 ## Scripts:
 - FastQC to MultiQC
