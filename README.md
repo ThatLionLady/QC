@@ -23,7 +23,14 @@ Input files must be in the format "sample.descriptor.bam".
 1. samples
     - path to list of samples
 2. descriptor
-3. directory
+3. bam directory
     - path to BAMs directory
 4. out directory 
     - path to out directory
+5. base
+    - basename for output file
+
+Output
+
+- *base*.BAM_coverage.list  
+- *base*.BAM_depth.list
