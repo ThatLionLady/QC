@@ -3,10 +3,14 @@
 Here are scripts for getting quality control statistics for various things.
 
 ## Scripts:
-- FastQC to MultiQC
-- Calculate BAM Coverage
+- `QualityControl.sh` = FastQC to MultiQC
+- `BAM-coverage.sh` = Calculate BAM Coverage
 
 ### FastQC to MultiQC
+
+```sh
+bash QualityControl.sh 1 2 3 4
+```
 
 1. format
     - bam, sam, bam_mapped, sam_mapped, fastq, or fastq.gz
@@ -17,6 +21,10 @@ Here are scripts for getting quality control statistics for various things.
 4. threads
 
 ### Calculate BAM Coverage
+
+```sh
+bash BAM-Coverage.sh 1 2 3 4
+```
 
 Input files must be in the format "sample.descriptor.bam".
 
