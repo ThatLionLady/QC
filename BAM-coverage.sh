@@ -2,18 +2,27 @@
 
 #input files must be in the format sample.descriptor.bam
 
-samples=$(<$1) #path to list of samples
-descriptor=$2
+SAMPLES=$(<$1) #path to list of samples
+DESCRIPTOR=$2
 
-dir=$3 #path to directory
-outdir=$4 #path to out directory
+DIR=$3 #path to bam directory
+OUT=$4 #path to out directory
+BASE=$5 #basename for outfile
 
-for sample in $samples; do
-samtools depth ${dir}${sample}.${descriptor}.bam | awk '{sum+=$3} END {print sum/NR}' > ${outdir}${sample}.coverageALL
+# Total Coverage (including positions without any coverage)
+
+for SAMPLE in ${SAMPLES}; do
+	samtools depth -aa ${DIR}${SAMPLE}.${DESCRIPTOR}.bam | echo -e "${SAMPLE} \t ALL \t $(awk '{sum+=$3} END {print sum/NR}')" >> ${OUT}${BASE}.BAM_coverage.list
+	echo "${SAMPLE} coverage complete"
 done
 
-#Parse
-for sample in $samples; do
-ALL="$(cat ${outdir}${sample}.coverageALL)";
-echo -e "${sample} \t ALL \t $ALL" >> ${outdir}BAM_coverage.list;
+echo "COVERAGE LIST COMPLETE"
+
+# Coverage at non-zero positions (excluding positions without any coverage)
+
+for SAMPLE in $SAMPLES; do
+	samtools depth ${DIR}${SAMPLE}.${DESCRIPTOR}.bam | echo -e "${SAMPLE} \t ALL \t $(awk '{sum+=$3} END {print sum/NR}')" >> ${OUT}${BASE}.BAM_depth.list
+	echo "${SAMPLE} depth complete"
 done
+
+echo "DEPTH LIST COMPLETE"
