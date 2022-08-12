@@ -8,6 +8,8 @@ Here are scripts for getting quality control statistics for various things.
 
 ### FastQC to MultiQC
 
+This script takes a list of samples through FastQC to MultiQC.
+
 ```sh
 bash QualityControl.sh 1 2 3 4
 ```
@@ -20,7 +22,11 @@ bash QualityControl.sh 1 2 3 4
     - path to out directory for FastQC results 
 4. threads
 
-### Calculate BAM Coverage
+### Calculate BAM Depth and Coverage
+
+Via `samtools depth`, this script calculates:
+- coverage = the total coverage (including positions without any coverage) 
+- depth = coverage at non-zero positions (excluding positions without any coverage)
 
 ```sh
 bash BAM-Coverage.sh 1 2 3 4
