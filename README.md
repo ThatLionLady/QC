@@ -8,7 +8,7 @@ Here are scripts for getting quality control statistics for various things.
 
 ### FastQC to MultiQC
 
-This script takes a list of samples through FastQC to MultiQC.
+This script takes a list of samples through [FastQC](https://github.com/s-andrews/FastQC) to [MultiQC](https://github.com/ewels/MultiQC).
 
 ```sh
 bash QualityControl.sh 1 2 3 4
